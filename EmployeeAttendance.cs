@@ -21,13 +21,17 @@ namespace EmployeeWageComputation
         public void CalculateEmpWage()
         {
                 int empCheck = random.Next(0, 3);
-                if (empCheck == IS_FULL_TIME) 
+                switch (empCheck)
                 {
-                empHRS = FULL_DAY_HR;
-                }
-                if(empCheck == IS_PART_TIME)
-                {
-                empHRS = PART_DAY_HR;
+                case IS_FULL_TIME:
+                    empHRS = FULL_DAY_HR;
+                    break;
+                case IS_PART_TIME:
+                    empHRS = PART_DAY_HR;
+                    break;
+                default:
+                    empHRS = 0;
+                    break;
                 }
                 totalEmpWage = WAGE_PER_HR * empHRS;
                 Console.WriteLine(totalEmpWage);
