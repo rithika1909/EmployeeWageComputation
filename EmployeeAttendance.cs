@@ -5,7 +5,7 @@ namespace EmployeeWageComputation
 {
     public class EmployeeWage
     {
-        const int WAGE_PER_HR = 20, FULL_DAY_HR = 8,PART_DAY_HR=4, IS_FULL_TIME=0,IS_PART_TIME=1,TOTAL_WORKING_DAYS=20;
+        const int WAGE_PER_HR = 20, FULL_DAY_HR = 8,PART_DAY_HR=4, IS_FULL_TIME=0,IS_PART_TIME=1,TOTAL_WORKING_DAYS=100;
         int totalEmpWage = 0 , empHRS=0;
         Random random = new Random();
         public void EmployeeAttendance()
@@ -20,7 +20,7 @@ namespace EmployeeWageComputation
         }
         public void CalculateEmpWage()
         {
-            for (int i = 0; i < TOTAL_WORKING_DAYS; i++)
+            for (int i = 0; i < TOTAL_WORKING_DAYS && empHRS <TOTAL_WORKING_DAYS; i++)
             {
 
                 int empCheck = random.Next(0, 3);
