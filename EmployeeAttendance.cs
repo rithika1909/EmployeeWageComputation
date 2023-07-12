@@ -5,10 +5,11 @@ namespace EmployeeWageComputation
 {
     public class EmployeeWage
     {
-        const int WAGE_PER_HR = 20, FULL_DAY_HR = 8;
+        const int WAGE_PER_HR = 20, FULL_DAY_HR = 8,PART_DAY_HR=4, IS_FULL_TIME=0,IS_PART_TIME=1;
+        int totalEmpWage = 0 , empHRS=0;
+        Random random = new Random();
         public void EmployeeAttendance()
         {
-            Random random = new Random();
             int empCheck = random.Next(0, 2);
             if (empCheck == 0)
             
@@ -19,9 +20,17 @@ namespace EmployeeWageComputation
         }
         public void CalculateEmpWage()
         {
-                int dailyEmpWage = WAGE_PER_HR + FULL_DAY_HR;
-                Console.WriteLine(dailyEmpWage);
-
+                int empCheck = random.Next(0, 3);
+                if (empCheck == IS_FULL_TIME) 
+                {
+                empHRS = FULL_DAY_HR;
+                }
+                if(empCheck == IS_PART_TIME)
+                {
+                empHRS = PART_DAY_HR;
+                }
+                totalEmpWage = WAGE_PER_HR * empHRS;
+                Console.WriteLine(totalEmpWage);
         }
 
     }
